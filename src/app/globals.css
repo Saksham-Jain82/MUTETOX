@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, "SF Mono", Menlo, monospace;
+}
+
+:root {
+  color-scheme: dark;
+  --canvas: #09090b;
+  --card: #18181b;
+  --edge: #27272a;
+  --ink: #fafafa;
+  --muted: #a1a1aa;
+}
+
+html {
+  scrollbar-color: #3f3f46 #09090b;
+}
+
+body {
+  background-color: var(--canvas);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px);
+  background-size: 26px 26px;
+}
+
+::selection {
+  background: rgba(16, 185, 129, 0.28);
+  color: #fafafa;
+}
+
+/* Slim, chrome-matched scrollbars */
+* {
+  scrollbar-width: thin;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border: 3px solid #09090b;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+
+/* ------------------------------------------------------------------ */
+/* MUTETOX slider — flat track, sharp thumb, zero gradient gloss      */
+/* ------------------------------------------------------------------ */
+
+.mutetox-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 20px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.mutetox-slider:focus {
+  outline: none;
+}
+
+.mutetox-slider::-webkit-slider-runnable-track {
+  height: 3px;
+  background: linear-gradient(
+    to right,
+    #10b981 var(--fill, 50%),
+    #27272a var(--fill, 50%)
+  );
+  border-radius: 2px;
+}
+
+.mutetox-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: -6.5px;
+  height: 16px;
+  width: 8px;
+  border-radius: 2px;
+  background: #fafafa;
+  border: 1px solid #09090b;
+  transition: transform 120ms ease;
+}
+
+.mutetox-slider::-webkit-slider-thumb:hover {
+  transform: scaleY(1.15);
+}
+
+.mutetox-slider::-moz-range-track {
+  height: 3px;
+  background: #27272a;
+  border-radius: 2px;
+}
+
+.mutetox-slider::-moz-range-progress {
+  height: 3px;
+  background: #10b981;
+  border-radius: 2px;
+}
+
+.mutetox-slider::-moz-range-thumb {
+  height: 16px;
+  width: 8px;
+  border-radius: 2px;
+  background: #fafafa;
+  border: 1px solid #09090b;
+  transition: transform 120ms ease;
+}
+
+.mutetox-slider::-moz-range-thumb:hover {
+  transform: scaleY(1.15);
+}
+
+/* Numbers always align in score readouts */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
